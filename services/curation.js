@@ -48,7 +48,7 @@ module.exports = class Curation {
         response = [
           Response.genText(i18n.__("leadgen.coupon")),
           Response.genGenericTemplate(
-            `${config.appUrl}/styles/${outfit}.jpg`,
+            `${config.appUrl}/styles/${outfit}.png`,
             i18n.__("curation.title"),
             i18n.__("curation.subtitle"),
             [
@@ -175,7 +175,7 @@ module.exports = class Curation {
         outfit = `${this.user.gender}-${this.randomOutfit()}`;
 
         response = Response.genGenericTemplate(
-          `${config.appUrl}/styles/${outfit}.jpg`,
+          `${config.appUrl}/styles/${outfit}.png`,
           i18n.__("curation.title"),
           i18n.__("curation.subtitle"),
           [
@@ -228,9 +228,10 @@ module.exports = class Curation {
   }
 
   randomOutfit() {
-    let occasion = ["work", "party", "dinner"];
-    let randomIndex = Math.floor(Math.random() * occasion.length);
+    // let occasion = ["work", "party", "dinner"];
+    let randomIndex = Math.ceil(Math.random() * 6);
 
-    return occasion[randomIndex];
+    // return occasion[randomIndex];
+    return "(" + randomIndex + ")";
   }
 };
